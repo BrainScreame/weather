@@ -43,56 +43,56 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-//        checkPermission(
-//            Manifest.permission.ACCESS_FINE_LOCATION,
-//            ACCESS_FINE_LOCATION_PERMISSION_CODE
-//        )
-//
+        checkPermission(
+            Manifest.permission.ACCESS_FINE_LOCATION,
+            ACCESS_FINE_LOCATION_PERMISSION_CODE
+        )
+
 //        viewModel.locationLiveData.observe(this, {
 //            Toast.makeText(this, it.address, Toast.LENGTH_LONG).show()
 //        })
 
     }
 
-//    private fun show() {
-//        viewModel.getLocation()
+    private fun show() {
+        //viewModel.getLocation()
 //        findNavController(R.id.nav_host_fragment).navigate(
 //            R.id.action_citiListFragment_to_weatherCityFragment
 //        )
-//    }
-//
-//    private fun showCities() {
+    }
+
+    private fun showCities() {
 //        findNavController(R.id.nav_host_fragment).navigate(
 //            R.id.citiListFragment
 //        )
-//    }
-//
-//    private fun checkPermission(permission: String, requestCode: Int) {
-//        if (ContextCompat.checkSelfPermission(
-//                this@MainActivity,
-//                permission
-//            ) == PackageManager.PERMISSION_DENIED
-//        ) {
-//            ActivityCompat.requestPermissions(this@MainActivity, arrayOf(permission), requestCode)
-//        } else {
-//            show()
-//        }
-//    }
-//
-//
-//    override fun onRequestPermissionsResult(
-//        requestCode: Int,
-//        permissions: Array<String>,
-//        grantResults: IntArray
-//    ) {
-//        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-//        if (requestCode == ACCESS_FINE_LOCATION_PERMISSION_CODE) {
-//            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-//                show()
-//            } else {
-//                showCities()
-//            }
-//        }
-//    }
+    }
+
+    private fun checkPermission(permission: String, requestCode: Int) {
+        if (ContextCompat.checkSelfPermission(
+                this@MainActivity,
+                permission
+            ) == PackageManager.PERMISSION_DENIED
+        ) {
+            ActivityCompat.requestPermissions(this@MainActivity, arrayOf(permission), requestCode)
+        } else {
+            show()
+        }
+    }
+
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == ACCESS_FINE_LOCATION_PERMISSION_CODE) {
+            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                show()
+            } else {
+                showCities()
+            }
+        }
+    }
 
 }

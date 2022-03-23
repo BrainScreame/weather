@@ -43,6 +43,11 @@ class WeatherDayFragment : Fragment() {
         return binding.root
     }
 
+    override fun onResume() {
+        super.onResume()
+        binding.circleView.percentAnimator()
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -60,9 +65,10 @@ class WeatherDayFragment : Fragment() {
 
             binding.imageViewWeather.setImageResource(getIcon(it.weather[0].icon))
 
-            binding.humidity.text = "${it.humidity}%"
+            //binding.humidity.text = "${it.humidity}%"
             binding.wind.text = "${it.windSpeed}m/s"
             binding.pressure.text = "${it.pressure}hPa"
+            binding.circleView.setPercentValue(it.humidity)
         }
 
         hourlyWeather?.let {

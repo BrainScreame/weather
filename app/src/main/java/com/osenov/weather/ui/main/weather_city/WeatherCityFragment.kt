@@ -80,14 +80,6 @@ class WeatherCityFragment : Fragment() {
             }.attach()
         }
 
-
-//        binding.circleView.setPercentValue(100)
-//        binding.circleView.percentAnimator()
-//
-//        binding.circleView.setOnClickListener{
-//
-//        }
-
     }
 
 }

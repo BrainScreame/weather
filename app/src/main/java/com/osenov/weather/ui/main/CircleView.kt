@@ -204,7 +204,7 @@ class CircleView @JvmOverloads constructor(
         GestureDetector(context, object : GestureDetector.SimpleOnGestureListener() {
             override fun onLongPress(e: MotionEvent?) {
                 Toast.makeText(context, "click!", Toast.LENGTH_LONG).show()
-                percentAnimator()
+                //percentAnimator()
             }
         })
 

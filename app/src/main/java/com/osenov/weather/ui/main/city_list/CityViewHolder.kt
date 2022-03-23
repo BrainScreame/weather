@@ -19,12 +19,13 @@ class CityViewHolder(private val viewBinding: ItemCityBinding) :
         viewBinding.textViewCityName.text = city?.name
 
         if (city != null) {
-            val countryName = Locale(city.country).displayName
-            if (city.state != "") {
-                viewBinding.textViewCountry.text = "${city.state}, $countryName"
-            } else {
-                viewBinding.textViewCountry.text = countryName
-            }
+//            val countryName = Locale(city.country).displayName
+//            if (city.state != "") {
+//                viewBinding.textViewCountry.text = "${city.state}, $countryName"
+//            } else {
+//                viewBinding.textViewCountry.text = countryName
+//            }
+            viewBinding.textViewCountry.text = city.country
         }
 
         if(city?.favorite == false){

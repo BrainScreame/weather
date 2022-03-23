@@ -55,7 +55,7 @@ class CityListViewModel @Inject constructor(
         }
     }
 
-    val flow = Transformations.switchMap(query) { queryString ->
+    val cities = Transformations.switchMap(query) { queryString ->
         Pager(PagingConfig(pageSize = 100, enablePlaceholders = true)) {
             CitiesPagingSource(cityRepository, queryString)
         }.liveData

@@ -71,8 +71,10 @@ class CitiListFragment : Fragment() {
         touchHelper.attachToRecyclerView(binding.citiesRecyclerView)
 
 
-        lifecycleScope.launch {
-            viewModel.flow.collectLatest(adapter::submitData)
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewModel.cities.observe (viewLifecycleOwner, {
+                adapter.submitData(lifecycle, it)
+            })
         }
 
         binding.search.imageDeleteQuery.setOnClickListener {
